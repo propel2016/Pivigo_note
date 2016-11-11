@@ -144,4 +144,14 @@ with neural_network_01:
 ![plots]
 (https://github.com/propel2016/General_images/blob/master/plots.png)
 
-The previous figure show the distribution of the parameters and their values in the last 1000 samples. It looks like we are not converged yet. Since the intention of this note is to show only the basics, let's proceed anyhow to see how we perform.
+The previous figure show the distribution of the parameters and their values in the last 1000 samples. It looks like we are not converged yet. Since the intention of this note is to show only the basics, let's proceed anyhow and see how we perform in our predictions. For this purpose we choose a threshold of 0.50 for our classifier.
+
+```
+# Replace shared variables with testing set
+ann_input.set_value(X_test)
+# Create posterior predictive samples
+ppc = pm.sample_ppc(trace_ANN_01, model=neural_network_01, samples=500)
+# We set threshold to be 0.5
+pred = ppc['out'].mean(axis=0) > 0.5
+pred = 1*pred
+```
