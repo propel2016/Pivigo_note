@@ -123,4 +123,19 @@ with pm.Model() as neural_network_01:
     out = pm.Bernoulli('out', act_out,observed=ann_output)
 ```
 
+Now that we have built up the model is time to execute the *probabilistic program*. It is important to keep in mind that [PyMC3] (https://pymc-devs.github.io/pymc3/) relies on Monte Carlo Markov Chains sampling algorithms. In what follows we are using [Metropolis-Hasting] (https://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm). Notice that I have commented a line where you have the option to use the [No-U-Turn Sampler (NUTS)] (https://arxiv.org/abs/1111.4246), which is 
 
+Be patient, this can take some time.
+
+```
+with neural_network_01:    
+
+    step = pm.Metropolis()
+    
+    #step = pm.NUTS()
+    
+    start = pm.find_MAP()
+    
+    #trace_ANN_01 = pm.sample(2000000, step=step)#[10000:]
+    trace_ANN_01 = pm.sample(20000, step=step, start=start,  progressbar=True)
+```
