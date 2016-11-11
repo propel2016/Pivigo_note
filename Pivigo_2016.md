@@ -155,3 +155,10 @@ ppc = pm.sample_ppc(trace_ANN_01, model=neural_network_01, samples=500)
 pred = ppc['out'].mean(axis=0) > 0.5
 pred = 1*pred
 ```
+
+Let's see some meassures of accuracy. We compute the typical accuracy and the area under the curve (AUC) for the Receiver operating characteristic (ROC) in addition.
+
+```
+print('Accuracy = {}%'.format((y_test == pred).mean() * 100))
+print('ROC-AUC = {}'.format(roc_auc_score(y_test,pred)))
+```
