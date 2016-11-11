@@ -165,4 +165,4 @@ print('ROC-AUC = {}'.format(roc_auc_score(y_test,pred)))
 
 ## III. General comments
 
-I hope you found this note informative and help you get interested, or at least curious, in probabilistic programming. In case you wish to review the notebook, follow this [link] (https://github.com/propel2016/Pivigo_note/blob/master/MCMC_classification_Titanic_ANN.ipynb). Also, if you wish to get started with probabilistic programming wiht a very simplistic toy model with artificial data you may want to review this [notebook.] (https://github.com/propel2016/Pivigo_note/blob/master/Super_Basic_ProProg_Demo.ipynb)
+I hope you found this note informative and help you get interested, or at least curious, in probabilistic programming. In case you wish to review the notebook, follow this [link] (https://github.com/propel2016/Pivigo_note/blob/master/MCMC_classification_Titanic_ANN.ipynb). Also, if you wish to get started with probabilistic programming with a very simplistic toy model with artificial data you may want to review this [notebook.] (https://github.com/propel2016/Pivigo_note/blob/master/Super_Basic_ProProg_Demo.ipynb)
