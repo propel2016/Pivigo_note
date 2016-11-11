@@ -137,5 +137,6 @@ with neural_network_01:
     # find maximum a posteriori
     start = pm.find_MAP()
     
+    # Let's use 20,000 samples
     trace_ANN_01 = pm.sample(20000, step=step, start=start,  progressbar=True)
 ```
