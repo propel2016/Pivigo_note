@@ -162,3 +162,7 @@ Let's see some meassures of accuracy. We compute the typical accuracy and the ar
 print('Accuracy = {}'.format((y_test == pred).mean() ))
 print('ROC-AUC = {}'.format(roc_auc_score(y_test,pred)))
 ```
+
+## III. General comments
+
+I hope you found this note informative and help you get interested, or at least curious, in probabilistic programming. In case you wish to review the notebook, follow this [link] (https://github.com/propel2016/Pivigo_note/blob/master/MCMC_classification_Titanic_ANN.ipynb). Also, if you wish to get started with probabilistic programming wiht a very simplistic toy model with artificial data you may want to review this notebook. 
