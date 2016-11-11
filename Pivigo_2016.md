@@ -123,9 +123,9 @@ with pm.Model() as neural_network_01:
     out = pm.Bernoulli('out', act_out,observed=ann_output)
 ```
 
-Now that we have built up the model is time to execute the *probabilistic program*. It is important to keep in mind that [PyMC3] (https://pymc-devs.github.io/pymc3/) relies on [Markov Chain Monte Carlo (MCMC)] (https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) sampling algorithms. In what follows we are using [Metropolis-Hasting] (https://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm). Notice that I have commented a line where you have the option to use the [No-U-Turn Sampler (NUTS)] (https://arxiv.org/abs/1111.4246), which adaptively sets path lengths in the Markov Chain Monte Carlo (MCMC) algorithm. In case you want to read an informal explanantion of MCMC you can follow this [link.] (https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/)
+Now that we have built up the model is time to execute the *probabilistic program*. It is important to keep in mind that [PyMC3] (https://pymc-devs.github.io/pymc3/) relies on [Markov Chain Monte Carlo (MCMC)] (https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) sampling algorithms. In what follows we are using [Metropolis-Hasting] (https://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm). Notice that I have commented a line where you have the option to use the [No-U-Turn Sampler (NUTS)] (https://arxiv.org/abs/1111.4246), which adaptively sets path lengths in the Markov Chain Monte Carlo (MCMC) algorithm. In case you want to read an informal explanantion of MCMC you can follow this [link.] (https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/). Last but not least, once the model has been specified, we would like to obtain thee *posterior* esitmates for the unknown variables of the model. In other words we need to find the [maximum a posteriori (MAP)] (https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation) point using optimization methods, and computing summaries based on samples drawn from the posterior distribution using Markov Chain Monte Carlo (MCMC) sampling methods.
 
-Be patient, this can take some time.
+Let's give it a try now!
 
 ```
 with neural_network_01:    
@@ -134,6 +134,7 @@ with neural_network_01:
     
     #step = pm.NUTS()
     
+    # find maximum a posteriori
     start = pm.find_MAP()
     
     #trace_ANN_01 = pm.sample(2000000, step=step)#[10000:]
