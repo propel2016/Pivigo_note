@@ -140,3 +140,6 @@ with neural_network_01:
     # Let's draw 20000 posterior samples
     trace_ANN_01 = pm.sample(20000, step=step, start=start,  progressbar=True)
 ```
+
+![plots]
+(https://github.com/propel2016/General_images/blob/master/plots.png)
