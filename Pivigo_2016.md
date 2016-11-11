@@ -131,12 +131,11 @@ Let's give it a try now!
 with neural_network_01:    
 
     step = pm.Metropolis()
-    
+    # ... but you could also use a No-U-Turn Sampler
     #step = pm.NUTS()
     
     # find maximum a posteriori
     start = pm.find_MAP()
     
-    #trace_ANN_01 = pm.sample(2000000, step=step)#[10000:]
     trace_ANN_01 = pm.sample(20000, step=step, start=start,  progressbar=True)
 ```
