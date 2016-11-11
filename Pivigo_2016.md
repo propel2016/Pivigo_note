@@ -143,3 +143,5 @@ with neural_network_01:
 
 ![plots]
 (https://github.com/propel2016/General_images/blob/master/plots.png)
+
+The previous figure show the distribution of the parameters and their values in the last 1000 samples. It looks like we are not converged yet. Since the intention of this notebook is to show only the basics, let's proceed anyhow to see how we perform.
