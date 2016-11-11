@@ -59,7 +59,24 @@ corrMatr = df.corr()
 (https://github.com/propel2016/General_images/blob/master/heatmap_Titanic.png)
 
 
+## III. The model: An artifical neural net
 
+Time to build our model. Let's try, just for the fun of it, a Bayesian Neural Network with one hidden layer. Since we will be adding a bias in our model let's add a column of ones to our current data frame.
+
+```
+df['Bias'] = np.ones(df.shape[0])
+```
+
+From our data frame we extract the corresponding matrix of fetures as well as the target
+
+```
+features = list(df.columns)
+features.remove('Survived')
+Xvalues = df[features].values
+yvalues = df.Survived.values
+```
+
+We proceed with a typical split into test and training sets. For this purpose we will need the [scikit learn Python library] (http://scikit-learn.org/stable/)
 
 
 
