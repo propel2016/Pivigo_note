@@ -93,4 +93,34 @@ ann_output = theano.shared(y_train)
 n_Neuron = 5 
 ```
 
+The following cell contains the actual implementation of the model. Some comments have been added in order to make the explanation as clear as possible. Remember that the main idea in probabilistic programming is to begin with a *prior probabilistic distribution* and imporve upon it as we gather information about observations.
+
+```
+# Initialize random weights for input and output
+init_1 = np.random.randn(X_train.shape[1], n_Neuron)
+
+init_out = np.random.randn(n_Neuron)
+
+with pm.Model() as neural_network_01:
+    # Weights from input to hidden layer with Normal distribution
+    weights_in_1 = pm.Normal('w_in_1', 0, sd=1, 
+                             shape=(X_train.shape[1], n_Neuron), 
+                             testval=init_1)
+    
+    # Weights from hidden layer to output with Normal distribution
+    weights_2_out = pm.Normal('w_2_out', 0, sd=1, 
+                              shape=(n_Neuron,), 
+                              testval=init_out)
+    
+    # Let's build neural-network with tanh activation functions...
+    act_1 = T.tanh(T.dot(ann_input, weights_in_1))
+ 
+       
+    act_out = T.nnet.sigmoid(T.dot(act_1, weights_2_out))
+    
+    
+    # Set output with a Bernoulli distribution
+    out = pm.Bernoulli('out', act_out,observed=ann_output)
+```
+
 
