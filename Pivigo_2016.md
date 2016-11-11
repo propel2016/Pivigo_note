@@ -85,7 +85,7 @@ X_train, X_test, y_train, y_test = \
 train_test_split(Xvalues, yvalues, train_size=0.7,random_state=2016)
 ```
 
-We now turn inputs and outputs into shared variables so that we can change them later. This where the construction of the artificail neural net begins. In the following we choose the number of units to 5, *n_Neuron = 5.*
+We now turn inputs and outputs into shared variables so that we can change them later. This where the construction of the artificail neural net begins. In the following we choose the number of units to 5, *n_Neuron = 5*.
 
 ```
 ann_input = theano.shared(X_train)
