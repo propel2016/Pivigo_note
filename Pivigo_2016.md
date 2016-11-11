@@ -159,6 +159,6 @@ pred = 1*pred
 Let's see some meassures of accuracy. We compute the typical accuracy and the area under the curve (AUC) for the Receiver operating characteristic (ROC) in addition.
 
 ```
-print('Accuracy = {}%'.format((y_test == pred).mean() * 100))
+print('Accuracy = {}'.format((y_test == pred).mean() ))
 print('ROC-AUC = {}'.format(roc_auc_score(y_test,pred)))
 ```
